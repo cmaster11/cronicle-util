@@ -24,4 +24,8 @@ RUN apk -v --update add \
   socat && \
   rm /var/cache/apk/*
 
+# kubectl
+ENV KUBECTL_VERSION v1.14.1
+ADD https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl /usr/local/bin/kubectl
+
 USER cronicle
