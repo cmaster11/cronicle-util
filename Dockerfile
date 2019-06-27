@@ -35,10 +35,9 @@ RUN apk -v --update add \
   jq \
   && rm /var/cache/apk/*
 
-# Sudo support
+# rsync support
 RUN apk -v --update add \
-  sudo \
-  su-exec \
+  rsync \
   && rm /var/cache/apk/*
 
 USER cronicle
