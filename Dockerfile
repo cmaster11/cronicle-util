@@ -40,4 +40,12 @@ RUN apk -v --update add \
   rsync \
   && rm /var/cache/apk/*
 
+# sudo support
+RUN apk -v --update add \
+  sudo \
+  && rm /var/cache/apk/*
+
+RUN adduser cronicle wheel
+RUN sed -e 's;^# \(%wheel.*NOPASSWD.*\);\1;g' -i /etc/sudoers
+
 USER cronicle
