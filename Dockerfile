@@ -29,10 +29,15 @@ ENV KUBECTL_VERSION v1.14.1
 ADD https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl /usr/local/bin/kubectl
 RUN chmod 0775 /usr/local/bin/kubectl
 
-# Simple templateing engine
+# Simple templating engine
 RUN apk -v --update add \
   gomplate \
   jq \
+  && rm /var/cache/apk/*
+
+# Sudo support
+RUN apk -v --update add \
+  sudo \
   && rm /var/cache/apk/*
 
 USER cronicle
