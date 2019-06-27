@@ -38,6 +38,7 @@ RUN apk -v --update add \
 # Sudo support
 RUN apk -v --update add \
   sudo \
+  su-exec \
   && rm /var/cache/apk/*
 
 USER cronicle
